@@ -1,0 +1,14 @@
+<p>{{ message }}</p>
+<div *ngIf="!authService.isLoggedIn">
+  Login
+  <input type="text" [(ngModel)]="userLogin">
+  <br>
+  Password
+  <input type="password" [(ngModel)]="userPassword" (onkeyup.enter)=login()>
+  <br>
+  <button (click)="login()" >Login</button>
+</div>
+
+<div *ngIf="authService.isLoggedIn">
+  <button (click)="logout()">Logout</button>
+</div>
